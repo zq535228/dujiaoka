@@ -1,10 +1,33 @@
-version: "2.2"
+version: "3"
+
 services:
   web:
-    build: .
-    ports:
-      - "80:80"
-      - "9000:9000"
+    image: shop
     environment:
-      WEB_DOCUMENT_ROOT: "/app/public"
-    tty: true
+        # - INSTALL=false
+        - INSTALL=false
+        # - MODIFY=true
+    volumes:
+      - ./.env:/dujiaoka/.env
+      - ./uploads:/dujiaoka/public/uploads
+      - ./storage:/dujiaoka/storage
+    ports:
+      - 56789:80
+    restart: always
+
+  db:
+    image: mariadb:focal
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=YOUR_PASSWORD
+      - MYSQL_DATABASE=dujiaoka
+      - MYSQL_USER=dujiaoka
+      - MYSQL_PASSWORD=YOUR_PASSWORD
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./redis:/data
