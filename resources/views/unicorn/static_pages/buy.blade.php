@@ -13,14 +13,14 @@
                                          class="card-img-top p-5" alt="{{ $gd_name }}">
                                     @if($type == \App\Models\Goods::AUTOMATIC_DELIVERY)
                                         <h6><small class="badge bg-success  position-absolute top-0 start-0">
-                                                <i class="ali-icon">&#xe7db;</i>
+                                                <i class="ali-icon">&#xe659;</i>
                                                 {{ __('goods.fields.automatic_delivery') }}</small>
 
                                         </h6>
                                     @else
                                         <h6>
                                             <small class="badge bg-warning  position-absolute top-0 start-0">
-                                                <i class="ali-icon">&#xe7db;</i>
+                                                <i class="ali-icon">&#xe659;</i>
                                                 {{ __('goods.fields.manual_processing') }}
                                             </small>
                                         </h6>

@@ -1,0 +1,1 @@
+docker build -t "shop" . && docker tag shop zq535228/shop && docker push zq535228/shop
